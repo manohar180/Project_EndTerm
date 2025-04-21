@@ -48,24 +48,20 @@ export const weatherService = {
         return data;
       } catch (fallbackError) {
         console.error('Error in fallback weather fetch:', fallbackError);
-        // Return a default weather object if all else fails
-        return {
-          main: {
-            temp: 20,
-            feels_like: 20,
-            humidity: 50
-          },
-          weather: [{
-            description: 'Partly cloudy',
-            icon: '02d'
-          }],
-          name: 'Default Location'
-        };
+        // Return null instead of a default weather object
+        return null;
       }
     }
   },
 
   getExerciseSuggestion(temperature) {
+    if (!temperature) {
+      return {
+        suggestion: 'Weather data unavailable',
+        exercises: ['Indoor Workouts', 'Gym Training', 'Yoga', 'Pilates']
+      };
+    }
+    
     if (temperature < 10) {
       return {
         suggestion: 'Indoor workouts are best in this cold weather',

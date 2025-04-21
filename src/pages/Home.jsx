@@ -138,6 +138,38 @@ const Home = () => {
         </div>
       )}
 
+      {!weatherLoading && !weatherError && !weather && (
+        <div className="max-w-2xl mx-auto mb-8 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+              Weather Information
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Weather data is currently unavailable. Please check your internet connection and try again.
+            </p>
+            <button 
+              onClick={() => {
+                setWeatherLoading(true);
+                setWeatherError('');
+                weatherService.getCurrentWeather()
+                  .then(data => {
+                    setWeather(data);
+                    setWeatherLoading(false);
+                  })
+                  .catch(error => {
+                    console.error('Error retrying weather fetch:', error);
+                    setWeatherError('Unable to fetch weather data. Please try again later.');
+                    setWeatherLoading(false);
+                  });
+              }}
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-2xl mx-auto mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transform hover:scale-105 transition-all duration-300">
         {loading ? (
           <div className="flex justify-center">
