@@ -35,7 +35,7 @@ const Home = () => {
         setWeather(data);
       } catch (error) {
         console.error('Error in fetchWeather:', error);
-        setWeatherError(`Error: ${error.message}. Please check your API key and try again.`);
+        setWeatherError('Unable to fetch weather data. Please try again later.');
       } finally {
         setWeatherLoading(false);
       }
@@ -78,7 +78,7 @@ const Home = () => {
           <div className="text-center">
             <p className="text-red-500 dark:text-red-400 mb-2">{weatherError}</p>
             <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-              Make sure your OpenWeatherMap API key is valid and active.
+              Weather information is currently unavailable. Please try again later.
             </p>
             <button 
               onClick={() => {
@@ -91,7 +91,7 @@ const Home = () => {
                   })
                   .catch(error => {
                     console.error('Error retrying weather fetch:', error);
-                    setWeatherError(`Error: ${error.message}. Please check your API key and try again.`);
+                    setWeatherError('Unable to fetch weather data. Please try again later.');
                     setWeatherLoading(false);
                   });
               }}
