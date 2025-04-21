@@ -83,6 +83,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
+- [OpenWeatherMap API](https://openweathermap.org/api) – For real-time weather updates
 - [Quotable API](https://github.com/lukePeavey/quotable) for motivational quotes
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [React](https://reactjs.org/) for the framework 
