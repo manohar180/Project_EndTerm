@@ -21,7 +21,7 @@ const Home = () => {
       } catch (error) {
         console.error('Error fetching quote:', error);
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
 
