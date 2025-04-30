@@ -30,14 +30,12 @@ export const WorkoutProvider = ({ children }) => {
     if (savedSettings) {
       const parsedSettings = JSON.parse(savedSettings);
       setSettings(parsedSettings);
-      // Apply dark mode class to document
       if (parsedSettings.darkMode) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
       }
     } else {
-      // If no saved settings, apply dark mode by default
       document.documentElement.classList.add('dark');
     }
     if (savedPersonalInfo) {
@@ -51,7 +49,6 @@ export const WorkoutProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem('settings', JSON.stringify(settings));
-    // Apply dark mode class to document when settings change
     if (settings.darkMode) {
       document.documentElement.classList.add('dark');
     } else {
