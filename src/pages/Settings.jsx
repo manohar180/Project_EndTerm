@@ -24,7 +24,6 @@ const Settings = () => {
   const handlePersonalInfoChange = (e) => {
     const { name, value } = e.target;
     setLocalPersonalInfo(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -68,8 +67,6 @@ const Settings = () => {
     updatePersonalInfo(localPersonalInfo);
     setSaveSuccess(true);
     setIsSaving(false);
-
-    // Hide success message after 3 seconds
     setTimeout(() => {
       setSaveSuccess(false);
     }, 3000);
