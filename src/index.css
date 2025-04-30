@@ -1,37 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   body {
     @apply bg-gray-50;
   }
 }
-
 @layer components {
   .card {
     @apply bg-white rounded-lg shadow-md p-4;
   }
-
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
   }
-
   .btn-primary {
     @apply bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-2 px-4 rounded-lg 
            transform transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
-
   .nav-link {
     @apply text-white px-3 py-2 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10;
   }
-
   .nav-link-active {
     @apply bg-white bg-opacity-20;
   }
 }
-
-/* Custom animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -40,7 +32,6 @@
     transform: translateY(-10px);
   }
 }
-
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -49,55 +40,40 @@
     transform: scale(1.05);
   }
 }
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
 .animate-pulse-slow {
   animation: pulse 2s ease-in-out infinite;
 }
-
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   @apply bg-gray-100 dark:bg-gray-800;
 }
-
 ::-webkit-scrollbar-thumb {
   @apply bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gradient-to-b from-indigo-600 to-purple-600;
 }
-
-/* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track {
   @apply bg-gray-800;
 }
-
 .dark ::-webkit-scrollbar-thumb {
   @apply bg-gray-700;
 }
-
 .dark ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-600;
 }
-
-/* Firefox scrollbar */
 * {
   scrollbar-width: thin;
   scrollbar-color: #374151 #1a1a1a;
 }
-
 .dark * {
   scrollbar-color: #374151 #1a1a1a;
 }
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
