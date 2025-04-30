@@ -3,13 +3,10 @@ import { API_CONFIG } from '../config/api';
 export const weatherService = {
   async getCurrentWeather() {
     try {
-      // Check if API key is available
       if (!API_CONFIG.WEATHER.API_KEY) {
         console.error('Weather API key is missing');
         throw new Error('Weather API key is not configured');
       }
-
-      // First try to get user's location
       const position = await new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject);
       });
@@ -32,8 +29,6 @@ export const weatherService = {
       return data;
     } catch (error) {
       console.error('Error in getCurrentWeather:', error);
-      
-      // If geolocation fails or API key is invalid, fall back to a default location
       try {
         console.log('Falling back to default location (New York)...');
         const response = await fetch(
@@ -48,7 +43,6 @@ export const weatherService = {
         return data;
       } catch (fallbackError) {
         console.error('Error in fallback weather fetch:', fallbackError);
-        // Return null instead of a default weather object
         return null;
       }
     }
