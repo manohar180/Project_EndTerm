@@ -21,8 +21,6 @@ const LogWorkout = () => {
     calories: '',
     template: false
   });
-
-  // Timer state
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
@@ -60,7 +58,6 @@ const LogWorkout = () => {
   };
 
   useEffect(() => {
-    // Get workout type from URL parameters
     const params = new URLSearchParams(location.search);
     const type = params.get('type');
     if (type) {
