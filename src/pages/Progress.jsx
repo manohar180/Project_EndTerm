@@ -9,12 +9,10 @@ const Progress = () => {
   const getFilteredWorkouts = () => {
     let filtered = workouts;
 
-    // Apply workout type filter
     if (filter !== 'all') {
       filtered = filtered.filter(workout => workout.type === filter);
     }
 
-    // Apply time filter
     const now = new Date();
     switch (timeFilter) {
       case 'week':
